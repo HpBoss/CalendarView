@@ -69,7 +69,7 @@ public abstract class BaseMonthView extends BaseView {
         mMonth = month;
         initCalendar();
         mHeight = CalendarUtil.getMonthViewHeight(year, month, mItemHeight, mDelegate.getWeekStart(),
-                mDelegate.getMonthViewShowMode());
+                mDelegate.getMonthViewShowMode(), mDelegate.getCalendarPaddingBottom());
 
     }
 
@@ -182,7 +182,7 @@ public abstract class BaseMonthView extends BaseView {
         mLineCount = CalendarUtil.getMonthViewLineCount(mYear, mMonth,
                 mDelegate.getWeekStart(), mDelegate.getMonthViewShowMode());
         mHeight = CalendarUtil.getMonthViewHeight(mYear, mMonth, mItemHeight, mDelegate.getWeekStart(),
-                mDelegate.getMonthViewShowMode());
+                mDelegate.getMonthViewShowMode(), mDelegate.getCalendarPaddingBottom());
         invalidate();
     }
 
@@ -192,14 +192,14 @@ public abstract class BaseMonthView extends BaseView {
     final void updateWeekStart() {
         initCalendar();
         mHeight = CalendarUtil.getMonthViewHeight(mYear, mMonth, mItemHeight, mDelegate.getWeekStart(),
-                mDelegate.getMonthViewShowMode());
+                mDelegate.getMonthViewShowMode(), mDelegate.getCalendarPaddingBottom());
     }
 
     @Override
     void updateItemHeight() {
         super.updateItemHeight();
         mHeight = CalendarUtil.getMonthViewHeight(mYear, mMonth, mItemHeight, mDelegate.getWeekStart(),
-                mDelegate.getMonthViewShowMode());
+                mDelegate.getMonthViewShowMode(), mDelegate.getCalendarPaddingBottom());
     }
 
 

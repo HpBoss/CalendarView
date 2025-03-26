@@ -111,13 +111,13 @@ public final class CalendarUtil {
      * @param weekStartWith 周起始
      * @return 不需要多余行的高度
      */
-    public static int getMonthViewHeight(int year, int month, int itemHeight, int weekStartWith) {
+    public static int getMonthViewHeight2(int year, int month, int itemHeight, int weekStartWith, int paddingBottom) {
         java.util.Calendar date = java.util.Calendar.getInstance();
         date.set(year, month - 1, 1, 12, 0, 0);
         int preDiff = getMonthViewStartDiff(year, month, weekStartWith);
         int monthDaysCount = getMonthDaysCount(year, month);
         int nextDiff = getMonthEndDiff(year, month, monthDaysCount, weekStartWith);
-        return (preDiff + monthDaysCount + nextDiff) / 7 * itemHeight;
+        return (preDiff + monthDaysCount + nextDiff) / 7 * itemHeight + paddingBottom;
     }
 
     /**
@@ -131,11 +131,11 @@ public final class CalendarUtil {
      * @param mode  mode
      * @return 不需要多余行的高度
      */
-    public static int getMonthViewHeight(int year, int month, int itemHeight, int weekStartWith, int mode) {
+    public static int getMonthViewHeight(int year, int month, int itemHeight, int weekStartWith, int mode, int paddingBottom) {
         if (mode == CalendarViewDelegate.MODE_ALL_MONTH) {
             return itemHeight * 6;
         }
-        return getMonthViewHeight(year, month, itemHeight, weekStartWith);
+        return getMonthViewHeight2(year, month, itemHeight, weekStartWith, paddingBottom);
     }
 
     /**

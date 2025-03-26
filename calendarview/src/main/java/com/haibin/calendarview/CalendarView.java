@@ -1464,6 +1464,14 @@ public class CalendarView extends FrameLayout {
         update();
     }
 
+    public void setCalendarPaddingBottom(int mCalendarPaddingBottom) {
+        if (mDelegate == null) {
+            return;
+        }
+        mDelegate.setCalendarPaddingRight(mCalendarPaddingBottom);
+        update();
+    }
+
 
     /**
      * 默认选择模式

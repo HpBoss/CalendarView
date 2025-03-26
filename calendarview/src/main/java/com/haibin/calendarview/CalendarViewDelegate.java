@@ -171,6 +171,8 @@ final class CalendarViewDelegate {
      */
     private int mCalendarPaddingLeft;
 
+    private int mCalendarPaddingBottom;
+
     /**
      * 日历内部右padding
      */
@@ -425,10 +427,12 @@ final class CalendarViewDelegate {
         mCalendarPadding = (int) array.getDimension(R.styleable.CalendarView_calendar_padding, 0);
         mCalendarPaddingLeft = (int) array.getDimension(R.styleable.CalendarView_calendar_padding_left, 0);
         mCalendarPaddingRight = (int) array.getDimension(R.styleable.CalendarView_calendar_padding_right, 0);
+        mCalendarPaddingBottom = (int) array.getDimension(R.styleable.CalendarView_calendar_padding_bottom, 0);
 
         if (mCalendarPadding != 0) {
             mCalendarPaddingLeft = mCalendarPadding;
             mCalendarPaddingRight = mCalendarPadding;
+            mCalendarPaddingBottom = mCalendarPadding;
         }
 
         mSchemeTextColor = array.getColor(R.styleable.CalendarView_scheme_text_color, 0xFFFFFFFF);
@@ -990,6 +994,14 @@ final class CalendarViewDelegate {
 
     void setCalendarPaddingRight(int mCalendarPaddingRight) {
         this.mCalendarPaddingRight = mCalendarPaddingRight;
+    }
+
+    int getCalendarPaddingBottom() {
+        return mCalendarPaddingBottom;
+    }
+
+    void setCalendarPaddingBottom(int mCalendarPaddingBottom) {
+        this.mCalendarPaddingBottom = mCalendarPaddingBottom;
     }
 
     void setPreventLongPressedSelected(boolean preventLongPressedSelected) {
